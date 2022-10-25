@@ -6,8 +6,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [profileState, setProfileState] = useState("");
   const [sentEmail, setSentEmail] = useState("");
-  const { createUser, verifyEmail, updateUserProfile } =
-    useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [passwordErr, setPasswordErr] = useState();
   const [nameErr, setNameErr] = useState();
   const [photoUrlErr, setPhotoUrlErr] = useState();
@@ -20,7 +19,7 @@ const Register = () => {
     const photoUrl = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    const cpassword = form.cpassword.value;
+    const cpassword = form.cPassword.value;
     if (!name) {
       setNameErr("Name field is required");
       return;
@@ -103,10 +102,10 @@ const Register = () => {
           form.reset();
           setError("User created successfully");
           updateUserProfile(name, photoUrl);
-          verifyEmail();
         })
         .catch((error) => {
           const errorMessage = error.message;
+          console.log(errorMessage);
           setError(errorMessage);
         });
     }
@@ -142,7 +141,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                name="photourl"
+                name="photoURL"
                 placeholder="Your photo url"
                 required
                 className="input input-bordered focus:border-none"
@@ -159,6 +158,27 @@ const Register = () => {
                 placeholder="Your email"
                 className="input input-bordered focus:border-none"
               />
+              {(emailErr && (
+                <div className="alert alert-warning shadow-lg">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="stroke-current flex-shrink-0 h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    <span>{emailErr}</span>
+                  </div>
+                </div>
+              )) ||
+                ""}
             </div>
             <div className="form-control">
               <label className="label">
@@ -171,6 +191,27 @@ const Register = () => {
                 placeholder="Enter password"
                 className="input input-bordered focus:border-none"
               />
+              {(passwordErr && (
+                <div className="alert alert-warning shadow-lg">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="stroke-current flex-shrink-0 h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    <span>{passwordErr}</span>
+                  </div>
+                </div>
+              )) ||
+                ""}
             </div>
             <div className="form-control">
               <label className="label">
@@ -183,6 +224,27 @@ const Register = () => {
                 required
                 className="input input-bordered focus:border-none"
               />
+              {(cpasswordErr && (
+                <div className="alert alert-warning shadow-lg">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="stroke-current flex-shrink-0 h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    <span>{cpasswordErr}</span>
+                  </div>
+                </div>
+              )) ||
+                ""}
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>

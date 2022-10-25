@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const Navbar = () => {
       });
   };
   return (
-    <nav className="bg-base-200 border-b-2 shadow">
+    <nav className="bg-base-200 border-b-2 z-50 shadow fixed w-full">
       <div className="container">
         <div className="navbar justify-between">
           <div>
@@ -106,10 +106,17 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                   <label
                     tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar"
+                    className="tooltip hover:tooltip-open tooltip-bottom btn btn-ghost btn-circle avatar w-10 rounded-full"
+                    data-tip={user?.displayName ? user.displayName : ""}
                   >
                     <div className="w-10 rounded-full">
-                      <img src="https://placeimg.com/80/80/people" />
+                      <Link>
+                        {user?.photoURL ? (
+                          <img src={user.photoURL} alt="" />
+                        ) : (
+                          ""
+                        )}
+                      </Link>
                     </div>
                   </label>
                   <ul
