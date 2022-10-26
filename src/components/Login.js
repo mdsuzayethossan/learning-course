@@ -52,6 +52,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -62,6 +63,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
@@ -70,6 +72,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };

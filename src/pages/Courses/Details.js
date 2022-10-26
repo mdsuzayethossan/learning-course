@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Details = () => {
   const singleDetails = useLoaderData();
-  const { title, students, details, picture } = singleDetails;
+  const { title, details, picture, id } = singleDetails;
   return (
     <div className="pt-24 max-w-lg text-center d-flex justify-center">
       <div className="card w-full text-center bg-base-100 shadow-xl">
@@ -15,7 +15,7 @@ const Details = () => {
           <p>{details}</p>
           <div className="card-actions">
             <button className="btn btn-primary">Download</button>
-            <Link to="/checkout" className="btn btn-primary">
+            <Link to={`/checkout/${id}`} className="btn btn-primary">
               Get premium access
             </Link>
           </div>
