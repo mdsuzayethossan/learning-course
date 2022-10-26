@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import logo from "../assets/project-management.png";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleSignout = () => {
@@ -17,8 +18,9 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar justify-between">
           <div>
-            <NavLink className="font-bold text-2xl text-primary" to="/home">
-              E-skills
+            <NavLink className="font-bold flex text-2xl text-primary" to="/">
+              <img width={25} src={logo} alt="" />{" "}
+              <span className="ml-2">E-skills</span>
             </NavLink>
           </div>
           <div>

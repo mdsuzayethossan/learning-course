@@ -1,9 +1,10 @@
 import { Declaration } from "postcss";
 import React from "react";
+import { Link } from "react-router-dom";
 import Details from "./Details";
 
 const CourseCard = ({ course }) => {
-  const { title, students, details, picture, fee } = course;
+  const { title, students, details, picture, fee, id } = course;
   return (
     <div className="card border-2 border-gray-200 w-full mb-10 bg-base-100 shadow-xl">
       <figure className="p-3">
@@ -25,7 +26,9 @@ const CourseCard = ({ course }) => {
           <div className="badge font-semibold">Students: {students}</div>
           <div className="badge font-semibold">${fee}</div>
         </div>
-        <button className="btn btn-primary mt-5 text-white">Buy Course</button>
+        <Link to={`/course/${id}`} className="btn btn-primary mt-5 text-white">
+          Details
+        </Link>
       </div>
     </div>
   );

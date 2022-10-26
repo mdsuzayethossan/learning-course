@@ -25,7 +25,8 @@ const Blog = () => {
           className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
         >
           <div className="collapse-title text-xl font-medium">
-            How does react context api work?
+            Why are you using `firebase`? What other options do you have to
+            implement authentication?
           </div>
           <div className="collapse-content">
             <p>
@@ -34,7 +35,9 @@ const Blog = () => {
               also want to consider leveraging this tool if you eventually wish
               to host and manage your app in the cloud. Being serverless,
               Firebase removes the need to worry about the technicalities of
-              cloud server configuration.
+              cloud server configuration.other options to implement
+              authentication Auth0, STYTCH, Ory, Supabase, Okta, PingIdentity,
+              Keycloak, Frontegg, Authress,
             </p>
           </div>
         </div>
@@ -45,21 +48,34 @@ const Blog = () => {
           className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
         >
           <div className="collapse-title text-xl font-medium">
-            What is the useRef hook?
+            How does the private route work?
           </div>
           <div className="collapse-content">
             <p>
-              The useRef Hook allows you to persist values between renders. It
-              can be used to store a mutable value that does not cause a
-              re-render when updated. It can be used to access a DOM element
-              directly.
+              The private route component is similar to the public route, the
+              only change is that redirect URL and authenticate condition. If
+              the user is not authenticated he will be redirected to the login
+              page and the user can only access the authenticated routes If he
+              is authenticated (Logged in).
             </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          tabIndex={3}
+          className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
+        >
+          <div className="collapse-title text-xl font-medium">
+            What is Node? How does Node work?
+          </div>
+          <div className="collapse-content">
             <p>
-              useRef returns a mutable ref object whose .current property is
-              initialized to the passed argument ( initialValue ). The returned
-              object will persist for the full lifetime of the component.
-              Essentially, useRef is like a “box” that can hold a mutable value
-              in its .current property.
+              It is a used as backend service where javascript works on the
+              server-side of the application. This way javascript is used on
+              both frontend and backend. Node. js runs on chrome v8 engine which
+              converts javascript code into machine code, it is highly scalable,
+              lightweight, fast, and data-intensive.
             </p>
           </div>
         </div>
