@@ -14,7 +14,7 @@ const Courses = () => {
     <div className="drawer h-auto drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content mx-5 mt-32 grid lg:grid-cols-3 gap-7">
-        {courses.map((course) => (
+        {courses?.map((course) => (
           <CourseCard key={course._id} course={course}></CourseCard>
         ))}
         <label
