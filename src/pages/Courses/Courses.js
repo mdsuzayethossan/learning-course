@@ -26,10 +26,10 @@ const Courses = () => {
       </div>
       <div className="drawer-side mt-14">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-80 bg-base-300 text-base-content">
+        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {categories?.map((category) => (
             <li key={category.id}>
-              <Link to={`/skill-category${category.id}`}>{category.name}</Link>
+              <Link to={`/skill-category/${category.id}`}>{category.name}</Link>
             </li>
           ))}
         </ul>
