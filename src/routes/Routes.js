@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../components/Error-page";
 import Login from "../components/Login";
+import PrivateRoute from "./PrivateRoute";
 import Register from "../components/Register";
 import Main from "../layouts/Main";
 import Blog from "../pages/Blog/Blog";
 import Courses from "../pages/Courses/Courses";
 import Details from "../pages/Courses/Details";
+import Checkout from "../pages/Checkout/Checkout";
 
 export const routes = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ export const routes = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/courses",

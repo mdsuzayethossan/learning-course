@@ -1,21 +1,19 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { AuthContext } from "../contexts/UserContext";
+import { AuthContext } from "../context/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
-  let location = useLocation();
-  const { loading, user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
+  const location = useLocation();
+
   if (loading) {
-    return (
-      <div className="flex justify-center">
-        <button className="btn btn-lg bg-transparent text-primary border-none loading"></button>
-      </div>
-    );
+    return <progress className="progress w-56"></progress>;
   }
-  if (user && user.uid) {
-    return children;
+
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
   }
-  return <Navigate to="/login" state={{ from: location }} replace />;
+  return children;
 };
 
 export default PrivateRoute;

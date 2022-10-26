@@ -11,9 +11,9 @@ const Login = () => {
   const { providerLogin, signIn, setUser, setLoading } =
     useContext(AuthContext);
   const [error, setError] = useState("");
-  let navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const facebookProvider = new FacebookAuthProvider();
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -41,6 +41,9 @@ const Login = () => {
         .catch((error) => {
           const errorMessage = error.message;
           setError(errorMessage);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   };
