@@ -145,16 +145,6 @@ const Navbar = () => {
                     className={({ isActive }) =>
                       isActive ? "text-primary font-bold" : "font-semibold"
                     }
-                    to="/register"
-                  >
-                    Register
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "text-primary font-bold" : "font-semibold"
-                    }
                     to="/login"
                   >
                     Log In
