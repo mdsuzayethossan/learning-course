@@ -16,7 +16,7 @@ const Navbar = () => {
   };
   return (
     <nav className="bg-base-200 border-b-2 z-50 shadow fixed w-full">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="navbar justify-between">
           <div>
             <NavLink className="font-bold flex text-2xl text-primary" to="/">
@@ -25,7 +25,7 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div>
-            <ul className="flex gap-14">
+            <ul className="hidden lg:flex gap-14">
               <li>
                 <NavLink
                   className={({ isActive }) =>
@@ -124,7 +124,7 @@ const Navbar = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                    className="menu hidden lg:block menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                   >
                     <li>
                       <a className="justify-between">
@@ -134,6 +134,55 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a>Settings</a>
+                    </li>
+                    <li>
+                      <button onClick={handleSignout}>Logout</button>
+                    </li>
+                  </ul>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-compact lg:hidden dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/home"
+                      >
+                        Home
+                      </NavLink>
+                    </li>
+
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/courses"
+                      >
+                        Courses
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/blog"
+                      >
+                        Blog
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/faq"
+                      >
+                        FAQ
+                      </NavLink>
                     </li>
                     <li>
                       <button onClick={handleSignout}>Logout</button>
@@ -152,6 +201,24 @@ const Navbar = () => {
                   >
                     Log In
                   </NavLink>
+                </li>
+                <li className="lg:hidden">
+                  <label htmlFor="my-drawer-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                      />
+                    </svg>
+                  </label>
                 </li>
               </ul>
             )}
