@@ -154,6 +154,11 @@ const Navbar = () => {
                 </li>
               </ul>
             )}
+            <ul>
+              <li className="flex items-center ml-3">
+                <input type="checkbox" className="toggle" />
+              </li>
+            </ul>
           </div>
         </div>
       </div>

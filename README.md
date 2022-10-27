@@ -2,7 +2,7 @@
 
 ## Live Link
 
-Hosted in Netlify -> [QuizBuzz](https://suzayet-react-quiz-website.netlify.app/)
+Hosted in Firebase -> [E-skills](https://authentic-app-46cf5.web.app)
 
 - A simple Navbar with dynamic route
   - /courses
