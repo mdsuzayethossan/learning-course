@@ -191,36 +191,119 @@ const Navbar = () => {
                 </div>
               </>
             ) : (
-              <ul className="flex gap-5">
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "text-primary font-bold" : "font-semibold"
-                    }
-                    to="/login"
-                  >
-                    Log In
-                  </NavLink>
-                </li>
-                <li className="lg:hidden">
-                  <label htmlFor="my-drawer-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
+              <>
+                <ul className="flex gap-5">
+                  <li className="mr-3">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "text-primary font-bold" : "font-semibold"
+                      }
+                      to="/login"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                      />
-                    </svg>
+                      Log In
+                    </NavLink>
+                  </li>
+                  <li className="lg:hidden">
+                    <label htmlFor="my-drawer-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                        />
+                      </svg>
+                    </label>
+                  </li>
+                </ul>
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar w-10 rounded-full"
+                  >
+                    <div className="w-10 rounded-full">
+                      <Link>
+                        <img
+                          src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
+                          alt=""
+                        />
+                      </Link>
+                    </div>
                   </label>
-                </li>
-              </ul>
+                  <ul
+                    tabIndex={0}
+                    className="menu hidden lg:block menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a className="justify-between">
+                        Profile
+                        <span className="badge">New</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>Settings</a>
+                    </li>
+                    <li>
+                      <button onClick={handleSignout}>Logout</button>
+                    </li>
+                  </ul>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-compact lg:hidden dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/home"
+                      >
+                        Home
+                      </NavLink>
+                    </li>
+
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/courses"
+                      >
+                        Courses
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/blog"
+                      >
+                        Blog
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-primary font-bold" : "font-semibold"
+                        }
+                        to="/faq"
+                      >
+                        FAQ
+                      </NavLink>
+                    </li>
+                    <li>
+                      <button onClick={handleSignout}>Logout</button>
+                    </li>
+                  </ul>
+                </div>
+              </>
             )}
             <ul className="flex items-center">
               <li className="flex items-center ml-3">
