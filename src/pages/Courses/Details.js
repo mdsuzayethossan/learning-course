@@ -7,7 +7,10 @@ const Details = () => {
   const singleDetails = useLoaderData();
   const { title, details, picture, id } = singleDetails;
   return (
-    <div ref={ref} className="pt-24 max-w-lg text-center d-flex justify-center">
+    <div
+      ref={ref}
+      className="pt-24 max-w-lg mx-auto text-center d-flex justify-center"
+    >
       <div className="card w-full text-center bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={picture} alt="Shoes" className="rounded-xl" />

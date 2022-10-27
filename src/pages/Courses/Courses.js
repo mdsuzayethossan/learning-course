@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import CourseCard from "./CourseCard";
 
 const Courses = () => {
   const courses = useLoaderData();
+  const { theme, setTheme } = useContext(AuthContext);
   return (
-    <div className="drawer h-auto drawer-mobile">
+    <div className={`drawer h-auto ${theme ? "bg-black" : ""} drawer-mobile`}>
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content mx-5 mt-32 grid lg:grid-cols-3 gap-7">
         {courses?.map((course) => (

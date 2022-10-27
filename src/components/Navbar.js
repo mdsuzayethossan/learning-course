@@ -3,12 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import logo from "../assets/project-management.png";
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, setTheme, theme } = useContext(AuthContext);
+  const dark = () => {
+    setTheme(!theme);
+  };
   const handleSignout = () => {
     logOut()
-      .then(() => {
-        alert("SignOut successfully");
-      })
+      .then(() => {})
       .catch((error) => {
         alert(error);
       });
@@ -154,9 +155,12 @@ const Navbar = () => {
                 </li>
               </ul>
             )}
-            <ul>
+            <ul className="flex items-center">
               <li className="flex items-center ml-3">
-                <input type="checkbox" className="toggle" />
+                <input type="checkbox" onClick={dark} className="toggle" />
+              </li>
+              <li className="flex items-center ml-3">
+                {theme ? "Dark" : "Light"}
               </li>
             </ul>
           </div>

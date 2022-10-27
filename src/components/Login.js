@@ -56,6 +56,7 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        setError(errorMessage);
       });
   };
   const handleGoogleSignIn = () => {
@@ -65,7 +66,7 @@ const Login = () => {
         setUser(user);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error.message));
   };
   const handleGithubLogin = () => {
     providerLogin(githubProvider)
@@ -74,7 +75,7 @@ const Login = () => {
         setUser(user);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="hero min-h-screen bg-base-200">

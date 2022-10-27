@@ -12,6 +12,7 @@ const Register = () => {
   const [photoUrlErr, setPhotoUrlErr] = useState();
   const [emailErr, setEmailErr] = useState();
   const [cpasswordErr, setCpasswordErr] = useState();
+  const [persistence, setPersistence] = useState();
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -101,7 +102,7 @@ const Register = () => {
           const user = userCredential.user;
           form.reset();
           setError("User created successfully");
-          updateUserProfile(name, photoUrl);
+          handleUpdateUserProfile(name, photoUrl);
         })
         .catch((error) => {
           const errorMessage = error.message;
@@ -109,6 +110,19 @@ const Register = () => {
           setError(errorMessage);
         });
     }
+  };
+  const handleUpdateUserProfile = (name, photoUrl) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoUrl,
+    };
+    updateUserProfile(profile)
+      .then(() => {
+        setPersistence("Profile updated successfully");
+      })
+      .catch((error) => {
+        setProfileState(error.message);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">

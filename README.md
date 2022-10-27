@@ -6,9 +6,9 @@ Hosted in Firebase -> [E-skills](https://authentic-app-46cf5.web.app)
 
 - A simple Navbar with dynamic route
   - /courses
-  - /statistics
+  - /blog
   - /course/:courseId
-  * /topics
+  - /faq
 - /
   - Header section with banner
   - Footer
@@ -19,3 +19,5 @@ Hosted in Firebase -> [E-skills](https://authentic-app-46cf5.web.app)
 
 * /checkout/courseID
   - When you will on Get premium access button then will show checkout page with specific course.
+* For responsive design used Tailwind css and also daisyui.
+* To download pdf used react-to-pdf
